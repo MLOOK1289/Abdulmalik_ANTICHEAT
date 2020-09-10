@@ -1,4 +1,4 @@
-local logskingive = "https://discordapp.com/api/webhooks/751014895155150860/9rLrXnItByFCcYwjh3TNgYjAbMc1JVgt8ZuebtX1HJEWmylz_bXtl8R29qbTmyhuyXzN"
+local logskingive = "https://discordapp.com/api/webhooks/753503102216437810/IAty5R7jUs52H524MzFm0OmMtl88yswQl_QN6BGGm9nQlntTmSddYK_vKqQLkgpF2KxR"
 
 function giveskinss(message) 
     local embed = {
