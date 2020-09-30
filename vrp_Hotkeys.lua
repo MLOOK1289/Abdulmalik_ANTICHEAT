@@ -265,7 +265,7 @@ if not handcuffed then
       vRP.varyHunger({user_id,-100})
       vRP.varyThirst({user_id,-100})
       sendADg((wed1),user_id,GetPlayerName(player))
-      TriggerClientEvent("pNotify:SendNotification",player,{text = "<span color=red>لقد تم تعبئة الاكل والشرب بنجاح</span>", type = "info", timeout = (5000),layout = "centerLeft"})
+      TriggerClientEvent("pNotify:SendNotification",player,{text = "<span color=red>كل زق</span>", type = "info", timeout = (5000),layout = "centerLeft"})
     else
     end
   end
