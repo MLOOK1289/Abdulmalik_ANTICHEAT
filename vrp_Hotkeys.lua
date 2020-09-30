@@ -227,24 +227,6 @@ function klbsha3(name, message, color)
                   }
                 PerformHttpRequest(webhook12, function(err, text, headers) end, 'POST', json.encode({username = Config.NameBot, embeds = connect, avatar_url = Config.photo}), { ['Content-Type'] = 'application/json' })
                 end
-              --============= تلويت
-                function tloet1(name, message, color)
-                  local connect = {
-                      {
-                        ["color"] = color,
-                        ["title"] = "**".. name .."**",
-                        ["description"] = message,
-                        ["thumbnail"] = {
-                          ["url"] = "https://a.top4top.io/p_1536i821q1.png",
-                        },
-                        ["footer"] = {
-                        ["text"] = "^6Made BY Abdulmalik#1111",
-                        ["icon_url"] = "https://cdn.discordapp.com/avatars/551090700679249961/a_5f05b23635aafd4fbcbcdc6d6880725c.gif?size=1024",
-                        },
-                      }
-                    }
-                  PerformHttpRequest(webhook13, function(err, text, headers) end, 'POST', json.encode({username = Config.NameBot, embeds = connect, avatar_url = Config.photo}), { ['Content-Type'] = 'application/json' })
-                  end
 
 
   ------=================================================================== LOGS =======================================================================================
@@ -646,73 +628,5 @@ AddEventHandler('silfr',function()
     end
   end
   end)
-end
-end)
---========= تليوت ========
-RegisterServerEvent('loot')
-AddEventHandler('loot',function()
-    local player = source
-    local user_id = vRP.getUserId({player})
-    if user_id ~= nil then
-      vRPclient.isHandcuffed(player,{},function(handcuffed)
-        if not handcuffed then
-      if isloot[user_id] ~= true then
-     isloot[user_id] = true
- vRPclient.getNearestPlayer(player,{10},function(nplayer)
-   local nuser_id = vRP.getUserId({nplayer})
-   if nuser_id ~= nil then
-     vRPclient.isInComa(nplayer,{}, function(in_coma)
-       if in_coma then
-   local revive_seq = {
-     {"amb@medic@standing@kneel@enter","enter",1},
-     {"amb@medic@standing@kneel@idle_a","idle_a",1},
-     {"amb@medic@standing@kneel@exit","exit",1}
-   }
-     vRPclient.playAnim(player,{false,revive_seq,false}) -- anim
-         SetTimeout(15000, function()
-           local ndata = vRP.getUserDataTable({nuser_id})
-           if ndata ~= nil then
-       if ndata.inventory ~= nil then -- gives inventory items
-       vRP.clearInventory({nuser_id})
-               for k,v in pairs(ndata.inventory) do 
-           vRP.giveInventoryItem({user_id,k,v.amount,true})
-             end
-     end
-     end
-     local nmoney = vRP.getMoney({nuser_id})
-     if vRP.tryPayment({nuser_id,nmoney}) then
-       vRP.giveMoney({user_id,nmoney})
-     end
-         end)
-   vRPclient.stopAnim(player,{false})
-    TriggerClientEvent("pNotify:SendNotification",nplayer,{
-     text = "<b style='color:#FF3636'>لقد تم الاستيلاء على اغراضك<b style='color:#FFFFFF'><br/> <b style='color:#FFFFFF'>" .. GetPlayerName(player) .. " من قبل الاعب <b style='color:#FF3636'><br/> <b style='color:#FF3636'> ايدي رقم <b style='color:#FFFFFF'>" .. user_id .. "<br/>",
-     type = "warning",
-     timeout = (5000),
-     layout = "centerRight",
-     queue = "global"
- })
-     tloet1("لقد قام صاحب الاي دي [ "..user_id.." ] بتلويت اللاعب صاحب الاي دي [ "..nuser_id.." ] \n\n Made BT Abdulmalik#1111 ")
-     vRP.giveInventoryItem({user_id,"قلب",1})
-     vRP.giveInventoryItem({user_id,"يد",1})
-     vRP.giveInventoryItem({user_id,"راس",1})
-       else
-         vRPclient.notify(player,{lang.emergency.menu.revive.not_in_coma()})
-       end
-     end)
-   else
-     TriggerClientEvent("pNotify:SendNotification",player,{text = "لا يوجد لاعب قريب", type = "info", timeout = (3000),layout = "centerRight"})
-     vRPclient.notify(player,{lang.common.no_player_near()})
-   end
- end)
-     SetTimeout(60000,function()
-       isloot[user_id] = false
-     end)
-else
-
-     --vRPclient.notify(player,{"~o~You can't spam loot, wait 1 min"})
-end
-end
-end)
 end
 end)
